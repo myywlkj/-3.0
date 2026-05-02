@@ -1,0 +1,42 @@
+[project]
+name = "huangke"
+version = "3.1.0"
+description = "黄客联盟 · 渗透测试工具箱 / Aurox Toolkit — Red Team Web Penetration Toolkit"
+readme = {text = "黄客联盟 / Aurox Toolkit — Red Team Web Penetration Toolkit\n\n功能: 目录扫描 | 指纹识别 | 端口扫描 | 内容分析 | WAF检测 | CDN识别 | 信息收集 | HTTP 头分析\n用法: python -m huangke 进入交互菜单  |  aurox 也可调用", content-type = "text/plain"}
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "黄客联盟 (HuangKe Alliance)"},
+    {name = "Aurox Security Lab"},
+]
+keywords = ["security", "penetration-testing", "red-team", "web-scanner", "fingerprint", "port-scanner"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "Topic :: Security",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "aiohttp>=3.9",
+    "rich>=13.0",
+]
+
+[project.scripts]
+huangke = "huangke.main:main"
+aurox = "huangke.main:main"
+aurox-cli = "huangke.main:main"
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio", "pytest-cov"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+huangke = ["wordlists/*.txt", "web/*.html"]
